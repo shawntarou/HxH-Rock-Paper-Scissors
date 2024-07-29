@@ -2,8 +2,6 @@ let compChoice;
 let humChoice;
 let humScore = 0;
 let compScore = 0;
-const humSelect = getHumanChoice();
-const compSelect = getComputerChoice();
 
 function getComputerChoice() {
     let compNum = Math.floor(Math.random() * 3);
@@ -20,22 +18,26 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humInput = prompt("What is your choice? rock, paper, or scissors");
-    humInput = humInput.toLowerCase();
-
-    if (humInput === 'rock') {
-        humChoice = 'rock';
-        console.log("Your choice is Rock!");
-    }
-    else if (humInput === 'paper') {
-        humChoice = 'paper';
-        console.log("Your choice is Paper!");
-    }
-    else if (humInput === 'scissors') {
-        humChoice = 'scissors';
-        console.log("Your choice is Scissors!");
+    if (typeof humInput === 'string') {
+        humInput = humInput.toLowerCase();
+            if (humInput === 'rock') {
+            humChoice = 'rock';
+            console.log("Your choice is Rock!");
+        }
+        else if (humInput === 'paper') {
+            humChoice = 'paper';
+            console.log("Your choice is Paper!");
+        }
+        else if (humInput === 'scissors') {
+            humChoice = 'scissors';
+            console.log("Your choice is Scissors!");
+        }
+        else {
+            console.log("That's not an option!")
+            getHumanChoice();
+        }
     }
     else {
-        console.log("That's not an option!")
         getHumanChoice();
     }
 }
@@ -53,4 +55,4 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
- playRound(humSelect, compSelect);
+ playRound(getHumanChoice(), getComputerChoice());
