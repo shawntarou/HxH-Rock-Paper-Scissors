@@ -15,31 +15,42 @@ function getComputerChoice() {
     } else {
         compChoice = 'scissors';
     }
-    console.log(compChoice)
+    console.log("Computer Choice: " + compChoice)
 }
 
 function getHumanChoice() {
     let humInput = prompt("What is your choice? rock, paper, or scissors");
+    humInput = humInput.toLowerCase();
 
     if (humInput === 'rock') {
         humChoice = 'rock';
-        console.log("Your choice is rock!");
+        console.log("Your choice is Rock!");
     }
     else if (humInput === 'paper') {
         humChoice = 'paper';
-        console.log("Your choice is paper!");
+        console.log("Your choice is Paper!");
     }
     else if (humInput === 'scissors') {
         humChoice = 'scissors';
-        console.log("Your choice is scissors!");
+        console.log("Your choice is Scissors!");
     }
     else {
-        console.log("That's not an option!");
+        console.log("That's not an option!")
         getHumanChoice();
     }
-    }
-
-function playRound(humChoice, compChoice) {
-    
 }
 
+
+function playRound(humanChoice, computerChoice) {
+    if (humChoice == 'rock' && compChoice == 'scissors') {
+        console.log("You win! Rock beats Scissors.")
+    }
+    else if (humChoice == 'paper' && compChoice == 'scissors') {
+        console.log("You lose! Scissors beats Paper.")
+    }
+    else if (humChoice == 'scissors' && compChoice == 'scissors') {
+        console.log("Tie! You both picked Scissors.")
+    }
+}
+
+ playRound(humSelect, compSelect);
