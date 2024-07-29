@@ -13,7 +13,7 @@ function getComputerChoice() {
     } else {
         compChoice = 'scissors';
     }
-    console.log("Computer Choice: " + compChoice)
+    console.log("Computer Choice: " + compChoice.charAt(0).toUpperCase() + compChoice.substring(1));
 }
 
 function getHumanChoice() {
@@ -22,18 +22,18 @@ function getHumanChoice() {
         humInput = humInput.toLowerCase();
             if (humInput === 'rock') {
             humChoice = 'rock';
-            console.log("Your choice is Rock!");
+            console.log("> Your choice is Rock!");
         }
         else if (humInput === 'paper') {
             humChoice = 'paper';
-            console.log("Your choice is Paper!");
+            console.log("> Your choice is Paper!");
         }
         else if (humInput === 'scissors') {
             humChoice = 'scissors';
-            console.log("Your choice is Scissors!");
+            console.log("> Your choice is Scissors!");
         }
         else {
-            console.log("That's not an option!")
+            console.log("> That's not an option!")
             getHumanChoice();
         }   
     }
@@ -86,4 +86,20 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+function playGame() {
+    for (let i = 0; i < 4; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+        console.log("The current score is: " + humScore + " - " + compScore);
+    }
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log("Final Score: " + humScore + " - " + compScore)
+    if (humScore > compScore) {
+        console.log("Congrats! You win the game!")
+    } else if (humScore < compScore) {
+        console.log("You lost to a computer? You suck!")
+    } else {
+        console.log("The game is a tie!")
+    }
+}
+
+playGame();
