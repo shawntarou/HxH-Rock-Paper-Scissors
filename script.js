@@ -17,7 +17,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humInput = prompt("What is your choice? rock, paper, or scissors");
+    let humInput = prompt("What is your choice? Rock, Paper, or Scissors");
     if (typeof humInput === 'string') {
         humInput = humInput.toLowerCase();
             if (humInput === 'rock') {
@@ -35,24 +35,55 @@ function getHumanChoice() {
         else {
             console.log("That's not an option!")
             getHumanChoice();
-        }
+        }   
     }
     else {
         getHumanChoice();
     }
 }
 
-
 function playRound(humanChoice, computerChoice) {
     if (humChoice == 'rock' && compChoice == 'scissors') {
         console.log("You win! Rock beats Scissors.")
+        humScore += 1;
     }
     else if (humChoice == 'paper' && compChoice == 'scissors') {
         console.log("You lose! Scissors beats Paper.")
+        compScore += 1;
     }
     else if (humChoice == 'scissors' && compChoice == 'scissors') {
         console.log("Tie! You both picked Scissors.")
     }
+    else if (humChoice == 'scissors' && compChoice == 'rock') {
+        console.log("You lose! Rock beats Scissors.")
+        compScore += 1;
+    }
+    else if (humChoice == 'scissors' && compChoice == 'paper') {
+        console.log("You win! Scissors beats Paper.")
+        humScore += 1;
+    }
+    else if (humChoice == 'rock' && compChoice == 'paper') {
+        console.log("You lose! Paper beats Rock.")
+        compScore += 1;
+    }
+    else if (humChoice == 'rock' && compChoice == 'scissors') {
+        console.log("You win! Rock beats Scissors.")
+        humScore += 1;
+    }
+    else if (humChoice == 'rock' && compChoice == 'rock') {
+    console.log("Tie! You both picked Rock.")
+    }
+    else if (humChoice == 'paper' && compChoice == 'rock') {
+        console.log("You win! Paper beats Rock.")
+        humScore += 1;
+    }
+    else if (humChoice == 'Scissors' && compChoice == 'Rock') {
+    console.log("You lose! Rock beats Scissors.")
+    compScore += 1;
+    }
+    else if (humChoice == 'paper' && compChoice == 'paper') {
+    console.log("Tie! You both picked Paper.")
+    }
 }
 
- playRound(getHumanChoice(), getComputerChoice());
+playRound(getHumanChoice(), getComputerChoice());
