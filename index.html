@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="script.js"></script>
+    <title>Rock Paper Scissors</title>
+    <script defer src="script.js"></script>
+    <style>
+        #buttons {
+            display: flex;
+            justify-content: center;
+            margin: 2em;
+            gap: 2.5em;
+        }
+        button {
+            padding: 1em 2em;
+            border-radius: 20px;
+            background: black;
+            color: white;
+            margin-top: 20em;
+        }
+        #scoreContainer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+    
+    </style>
 </head>
 <body>
+    <div id="buttons">
+            <button id="rockButton">Rock</button>    
+            <button id="paperButton">Paper</button>
+            <button id="scissorsButton">Scissors</button>
+        </div>
+    <div id="scoreContainer">
+        <h1 id="yourChoiceText"></h1>
+        <h1 id="compChoiceText"></h1>
+        <h1 id="announceText"></h1>
+        <h1 id="score"></h1>
+
     
+    
+    </div>
+
+    
+
 </body>
 </html>
