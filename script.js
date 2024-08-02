@@ -64,9 +64,6 @@ function playRound(humanChoice, computerChoice) {
                 : (console.log("You Lose! Paper beats Rock!"), 
                 announceText.textContent = "You Lose! Paper beats Rock!",
                 compScore += 1);
-                if (humScore == 5 || compScore == 5){
-                     fsDisplay();
-                }
                 break;
             case 'paper':
                 compChoice == 'rock' ? (console.log("You Win! Paper beats Rock!"),
@@ -75,9 +72,6 @@ function playRound(humanChoice, computerChoice) {
                 (console.log("You Lose! Scissors beats Paper!"), 
                 announceText.textContent = "You Lose! Scissors beats Paper!",
                 compScore += 1);
-                if (humScore == 5 || compScore == 5){
-                     fsDisplay();
-                }
                 break;
             case 'scissors':
                 compChoice == 'paper' ? (console.log("You Win! Scissors beats Paper!"), 
@@ -86,9 +80,6 @@ function playRound(humanChoice, computerChoice) {
                 (console.log("You lose! Rock beats Scissors!"), 
                 announceText.textContent = "You lose! Rock beats Scissors!",
                 compScore += 1);
-                if (humScore == 5 || compScore == 5){
-                     fsDisplay();
-                }
                 break;
         }       
     }
@@ -121,6 +112,10 @@ const paperButton = document.getElementById("paperButton");
 const score = document.getElementById("score")
 const gameOverDisplay = document.getElementById("gameOverDisplay")
 
+function csDisplay() {
+    score.textContent = ("The current score is: " + humScore + " - " + compScore);
+}
+
 function fsDisplay() {
     document.getElementById("buttons").remove();
     score.remove();
@@ -141,8 +136,15 @@ function fsDisplay() {
     }
     document.getElementById("gameOverDisplay").appendChild(fsScore);
     document.getElementById("gameOverDisplay").appendChild(finalText);
-
 }
+
+function scoreCheck() {
+    if (humScore == 5 || compScore == 5){
+    fsDisplay();
+    }
+    else {csDisplay();}
+}
+
 
 
 
@@ -150,15 +152,15 @@ function fsDisplay() {
 rockButton.addEventListener("click", () => {
     playRound(getHumanChoice("rock"), getComputerChoice());
     console.log("The current score is: " + humScore + " - " + compScore);
-    score.textContent = ("The current score is: " + humScore + " - " + compScore)
+    scoreCheck();
 });
 scissorsButton.addEventListener("click", () => {
     playRound(getHumanChoice("scissors"), getComputerChoice());
     console.log("The current score is: " + humScore + " - " + compScore);
-    score.textContent = ("The current score is: " + humScore + " - " + compScore)
+    scoreCheck();
 });
 paperButton.addEventListener("click", () => {
     playRound(getHumanChoice("paper"), getComputerChoice());
     console.log("The current score is: " + humScore + " - " + compScore);
-    score.textContent = ("The current score is: " + humScore + " - " + compScore)
+    scoreCheck();
 });
