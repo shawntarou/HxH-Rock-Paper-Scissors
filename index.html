@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>HxH Rock Paper Scissors</title>
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta">
     <style>
         body {
-            background: rgb(86, 124, 74);
+        font-family: "Mukta",sans-serif;
         }
 
         #buttons {
@@ -17,12 +18,13 @@
             gap: 2.5em;
         }
         button {
-            padding: 3em 3em;
             border-radius: 30px;
+            border: 3px solid black;
             background: rgb(255, 255, 255);
             color: black;
-            margin-top: 20em;
-            font-size: 1em;
+            font-size: 3.5em;
+            padding: 20px 30px;
+            font-family: segoe ui emoji;
         }
         #scoreContainer {
             display: flex;
@@ -42,9 +44,9 @@
 </head>
 <body>
     <div id="buttons">
-            <button id="rockButton">Rock</button>    
-            <button id="paperButton">Paper</button>
-            <button id="scissorsButton">Scissors</button>
+            <button id="rockButton">👊</button>    
+            <button id="paperButton">✋</button>
+            <button id="scissorsButton">✌️</button>
         </div>
     <div id="scoreContainer">
         <h1 id="yourChoiceText"></h1>
