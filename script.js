@@ -64,6 +64,9 @@ function playRound(humanChoice, computerChoice) {
                 : (console.log("You Lose! Paper beats Rock!"), 
                 announceText.textContent = "You Lose! Paper beats Rock!",
                 compScore += 1);
+                if (humScore == 5 || compScore == 5){
+                     fsDisplay();
+                }
                 break;
             case 'paper':
                 compChoice == 'rock' ? (console.log("You Win! Paper beats Rock!"),
@@ -72,6 +75,9 @@ function playRound(humanChoice, computerChoice) {
                 (console.log("You Lose! Scissors beats Paper!"), 
                 announceText.textContent = "You Lose! Scissors beats Paper!",
                 compScore += 1);
+                if (humScore == 5 || compScore == 5){
+                     fsDisplay();
+                }
                 break;
             case 'scissors':
                 compChoice == 'paper' ? (console.log("You Win! Scissors beats Paper!"), 
@@ -80,6 +86,9 @@ function playRound(humanChoice, computerChoice) {
                 (console.log("You lose! Rock beats Scissors!"), 
                 announceText.textContent = "You lose! Rock beats Scissors!",
                 compScore += 1);
+                if (humScore == 5 || compScore == 5){
+                     fsDisplay();
+                }
                 break;
         }       
     }
@@ -107,6 +116,23 @@ const scissorsButton = document.getElementById("scissorsButton");
 const paperButton = document.getElementById("paperButton");
 const score = document.getElementById("score")
 
+function fsDisplay() {
+    document.getElementById("buttons").remove();
+    score.remove();
+    announceText.remove();
+    yourChoiceText.remove();
+    compChoiceText.remove();
+    fsText = document.createElement('h1');
+    fsText.style = "color: red; margin-top: 10em;"
+    console.log("Final Score: " + humScore + " - " + compScore);
+    fsText.textContent = "Final Score: " + humScore + " - " + compScore;
+    document.getElementById("scoreContainer").appendChild(fsText);
+
+}
+
+
+
+
 rockButton.addEventListener("click", () => {
     playRound(getHumanChoice("rock"), getComputerChoice());
     console.log("The current score is: " + humScore + " - " + compScore);
@@ -122,4 +148,3 @@ paperButton.addEventListener("click", () => {
     console.log("The current score is: " + humScore + " - " + compScore);
     score.textContent = ("The current score is: " + humScore + " - " + compScore)
 });
-
