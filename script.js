@@ -115,6 +115,7 @@ const rockButton = document.getElementById("rockButton");
 const scissorsButton = document.getElementById("scissorsButton");
 const paperButton = document.getElementById("paperButton");
 const score = document.getElementById("score")
+const gameOverDisplay = document.getElementById("gameOverDisplay")
 
 function fsDisplay() {
     document.getElementById("buttons").remove();
@@ -122,11 +123,20 @@ function fsDisplay() {
     announceText.remove();
     yourChoiceText.remove();
     compChoiceText.remove();
-    fsText = document.createElement('h1');
-    fsText.style = "color: red; margin-top: 10em;"
+    fsScore = document.createElement('h1');
+    fsScore.style = "color: red; margin-top: 15em;"
     console.log("Final Score: " + humScore + " - " + compScore);
-    fsText.textContent = "Final Score: " + humScore + " - " + compScore;
-    document.getElementById("scoreContainer").appendChild(fsText);
+    fsScore.textContent = "Final Score: " + humScore + " - " + compScore;
+    finalText = document.createElement('h1');
+    if (humScore > compScore) {
+        console.log("Congrats! You win the game!")
+        finalText.textContent = "Congrats! You win the game!";
+    } else {
+        console.log("You lost to a computer? You suck!")
+        finalText.textContent = "You lost to a computer? You suck!";
+    }
+    document.getElementById("gameOverDisplay").appendChild(fsScore);
+    document.getElementById("gameOverDisplay").appendChild(finalText);
 
 }
 
