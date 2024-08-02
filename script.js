@@ -94,6 +94,10 @@ function playRound(humanChoice, computerChoice) {
     }
     }
 
+    
+///////////////////////////////////////////
+// OLD LOGIC FOR PLAYING THROUGH CONSOLE//
+/////////////////////////////////////////
 // function playGame() {
 //     for (let i = 0; i < 4; i++) {
 //         playRound(getHumanChoice(), getComputerChoice());
