@@ -7,6 +7,36 @@ const announceText = document.getElementById("announceText");
 const yourChoiceText = document.getElementById("yourChoiceText");
 const compChoiceText = document.getElementById("compChoiceText");
 
+const rockImg = new Array("images/gon-rock.jpg","images/gon-rock-2.jpg");
+const scissorsImg = new Array("images/gon-scissors.jpg","images/gon-scissors-2.jpg");
+const paperImg = new Array("images/gon-paper.jpg","images/gon-paper-2.jpg","images/gon-paper-3.jpg");
+
+const winImg = new Array("images/win-1.jpg","images/win-2.jpg");
+const loseImg = new Array("images/lose-1.jpg","images/lose-2.jpg")
+
+
+
+const imgContainer = document.getElementById("imgContainer");
+
+
+
+
+function displayImg(imagePick, displayDiv, imageSize) {
+    outputImg = document.createElement("img");
+    outputImg.setAttribute("src", getRandomImg(imagePick));
+    outputImg.setAttribute("width", "auto");
+    outputImg.setAttribute("height",imageSize + "px");
+    displayDiv.appendChild(outputImg);
+}
+
+function getRandomImg(image) {
+    const randomNum = Math.floor(Math.random() * image.length);
+    const randomImg = image[randomNum];
+    return(randomImg);
+}
+
+
+
 function getComputerChoice() {
     let compNum = Math.floor(Math.random() * 3);
 
@@ -29,16 +59,19 @@ function getHumanChoice(choice) {
             humChoice = 'rock';
             console.log("> Your choice is Rock!");
             yourChoiceText.textContent = "> Your choice is Rock!"
+            displayImg(rockImg, imgContainer, 300);
         }
         else if (humInput === 'paper') {
             humChoice = 'paper';
             console.log("> Your choice is Paper!");
             yourChoiceText.textContent = "> Your choice is Paper!"
+            displayImg(paperImg, imgContainer, 300);
         }
         else if (humInput === 'scissors') {
             humChoice = 'scissors';
             console.log("> Your choice is Scissors!");
             yourChoiceText.textContent = "> Your choice is Scissors!"
+            displayImg(scissorsImg, imgContainer, 300);
         }
         else {
             console.log("> That's not an option!")
@@ -123,16 +156,18 @@ function fsDisplay() {
     yourChoiceText.remove();
     compChoiceText.remove();
     fsScore = document.createElement('h1');
-    fsScore.style = "color: red; margin-top: 15em;"
+    fsScore.style = "color: red;"
     console.log("Final Score: " + humScore + " - " + compScore);
     fsScore.textContent = "Final Score: " + humScore + " - " + compScore;
     finalText = document.createElement('h1');
     if (humScore > compScore) {
         console.log("Congrats! You win the game!")
         finalText.textContent = "Congrats! You win the game!";
+        displayImg(winImg, gameOverDisplay, 500);
     } else {
         console.log("You lost to a computer? You suck!")
         finalText.textContent = "You lost to a computer? You suck!";
+        displayImg(loseImg, gameOverDisplay, 500);
     }
     document.getElementById("gameOverDisplay").appendChild(fsScore);
     document.getElementById("gameOverDisplay").appendChild(finalText);
